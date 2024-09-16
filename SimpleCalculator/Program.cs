@@ -6,26 +6,46 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            try
+            Boolean t = true;
+            while (t)
             {
-                // Class to convert user input
-                InputConverter inputConverter = new InputConverter();
+                try
+                {
+                    // Class to convert user input
 
-                // Class to perform actual calculations
-                CalculatorEngine calculatorEngine = new CalculatorEngine();
 
-                double firstNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                double secondNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                string operation = Console.ReadLine();
+                    // Class to perform actual calculations
+                    CalculatorEngine calculatorEngine = new CalculatorEngine();
 
-                double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
 
-                Console.WriteLine(result);
+                    Console.WriteLine("Input a number");
+                    double firstNumber = InputConverter.ConvertInputToNumeric(Console.ReadLine());
+                    Console.WriteLine("Input a number");
+                    double secondNumber = InputConverter.ConvertInputToNumeric(Console.ReadLine());
+                    Console.WriteLine("Input an operator");
+                    string operation = Console.ReadLine();
 
-            } catch (Exception ex)
-            {
-                // Normally, we'd log this error to a file.
-                Console.WriteLine(ex.Message);
+                    double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
+                    double resultr = Math.Round(result, 2);
+                    string line = String.Format("The result of {0}{1}{2} is : {3}", firstNumber, operation, secondNumber, resultr);
+                    
+                    Console.WriteLine(line);
+                    t = false;
+                    Console.ReadLine();
+
+
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    // Normally, we'd log this error to a file.
+                    Console.WriteLine("Make sure to input Numbers in the first two cases\nand an operator such as '+', '-', '*', '/', 'add', 'substract', 'multiply' or 'divide'");
+                    Console.ReadLine();
+                    t = true;
+                }
             }
 
         }

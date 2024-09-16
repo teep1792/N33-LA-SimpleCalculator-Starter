@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SimpleCalculator.Test.Unit
 {
     [TestClass]
-    public class InputConverterTest
+    public static class InputConverterTest
     {
         private readonly InputConverter _inputConverter = new InputConverter();
 
