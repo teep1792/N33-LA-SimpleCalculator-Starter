@@ -1,4 +1,5 @@
 ﻿using System;
+using CalcEnginLib;
 
 namespace SimpleCalculator
 {
@@ -15,7 +16,8 @@ namespace SimpleCalculator
 
 
                     // Class to perform actual calculations
-                    CalculatorEngine calculatorEngine = new CalculatorEngine();
+                    //CalculatorEngine calculatorEngine = new CalculatorEngine();
+                    CalcEngin calcEngin = new CalcEngin();
 
 
                     Console.WriteLine("Input a number");
@@ -26,7 +28,7 @@ namespace SimpleCalculator
                     string operation = Console.ReadLine();
                     
 
-                    double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
+                    double result = calcEngin.Calculate(operation, firstNumber, secondNumber);
                     double resultr = Math.Round(result, 2);
                     string line = String.Format("The result of {0}{1}{2} is : {3}", firstNumber, operation, secondNumber, resultr);
                     
@@ -47,7 +49,7 @@ namespace SimpleCalculator
                 catch (Exception ex)
                 {
                     // Normally, we'd log this error to a file.
-                    Console.WriteLine("Make sure to input Numbers in the first two cases\nand an operator such as '+', '-', '*', '/', 'add', 'substract', 'multiply' or 'divide'");
+                    Console.WriteLine("Make sure to input Numbers in the first two cases\nand an operator such as '+', '-', '*', '/', '^', 'add', 'substract', 'multiply', 'power', or 'divide'");
                     Console.ReadLine();
                     t = true;
                 }
