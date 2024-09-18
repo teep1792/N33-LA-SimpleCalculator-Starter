@@ -24,6 +24,7 @@ namespace SimpleCalculator
                     double secondNumber = InputConverter.ConvertInputToNumeric(Console.ReadLine());
                     Console.WriteLine("Input an operator");
                     string operation = Console.ReadLine();
+                    
 
                     double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
                     double resultr = Math.Round(result, 2);
@@ -31,6 +32,10 @@ namespace SimpleCalculator
                     
                     Console.WriteLine(line);
                     t = false;
+
+                    //The End Program, -> looking a bit nicer
+                    Console.WriteLine("");
+                    Console.WriteLine("Press Enter to Exit");
                     Console.ReadLine();
 
 
